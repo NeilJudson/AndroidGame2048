@@ -1,2 +1,2 @@
 # AndroidGame2048
-Android游戏2048源码
+Android游戏2048

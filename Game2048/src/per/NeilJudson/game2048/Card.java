@@ -13,12 +13,11 @@ public class Card extends FrameLayout {
 		super(context);
 		// TODO Auto-generated constructor stub
 		tvLabel = new TextView(getContext());
-		tvLabel.setTextSize(48);
+		tvLabel.setTextSize(32);
 		tvLabel.setGravity(Gravity.CENTER);
-		tvLabel.setBackgroundColor(0x44ffffff);
-		tvLabel.getPaint().setFakeBoldText(true);
+		tvLabel.setBackgroundColor(0x33ffffff);
 		LayoutParams lp = new LayoutParams(-1, -1);
-		lp.setMargins(16, 16, 0, 0);
+		lp.setMargins(10, 10, 0, 0);
 		addView(tvLabel, lp);
 		setNum(0);
 	}
@@ -32,7 +31,7 @@ public class Card extends FrameLayout {
 		if (iNum<=0) {
 			tvLabel.setText("");
 		}else{
-			tvLabel.setText(iNum + "");// 杩欐牱鍙互鎶奿Num杞寲涓哄瓧绗︿覆
+			tvLabel.setText(iNum + "");// 这样可以把iNum转化为字符串
 		}
 	}
 

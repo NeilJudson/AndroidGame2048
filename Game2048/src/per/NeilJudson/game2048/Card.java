@@ -29,9 +29,9 @@ public class Card extends FrameLayout {
 
 	public void setNum(int iNum) {
 		this.iNum = iNum;
-		if (iNum<=0) {
+		if (iNum <= 0) {
 			tvLabel.setText("");
-		}else{
+		} else {
 			tvLabel.setText(iNum + "");// 这样可以把iNum转化为字符串
 		}
 	}

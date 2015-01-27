@@ -17,26 +17,21 @@ import android.widget.LinearLayout;
 public class GameView extends GridLayout {
 	private Card[][] cardMap = new Card[4][4];
 	private List<Point> emptyPoints = new ArrayList<Point>();
-	
-/*	LinearLayout linearLayout=(LinearLayout)findViewById(R.id.linearLayout);
-	private void test(){
-		int h=0;
-		int w = 0;
-//		LayoutParams lp=(LayoutParams) linearLayout.getLayoutParams();
-		System.out.println("test "+h+" "+w);
-		System.out.println("1");
-//		h=lp.height;
-		linearLayout.measure(w, h);
-		System.out.println("2");
-//		w=lp.width;
-		System.out.println("test "+h+" "+w);
-	}*/
-	
-	private void test2(){
-		int h,w;
-		h=getHeight();
-		w=getWidth();
-		System.out.println(h+" "+w);
+
+	/*
+	 * LinearLayout linearLayout=(LinearLayout)findViewById(R.id.linearLayout);
+	 * private void test(){ int h=0; int w = 0; // LayoutParams
+	 * lp=(LayoutParams) linearLayout.getLayoutParams();
+	 * System.out.println("test "+h+" "+w); System.out.println("1"); //
+	 * h=lp.height; linearLayout.measure(w, h); System.out.println("2"); //
+	 * w=lp.width; System.out.println("test "+h+" "+w); }
+	 */
+
+	private void test2() {
+		int h, w;
+		h = getHeight();
+		w = getWidth();
+		System.out.println(h + " " + w);
 	}
 
 	public GameView(Context context) {
@@ -65,14 +60,15 @@ public class GameView extends GridLayout {
 		setBackgroundColor(0xffbdada0);
 		System.out.println("GameView_initGameView");
 	}
-	
-	private void runGame(){
-/*		System.out.println("GameView.runGame().test2()");
-		test2();*/
+
+	private void runGame() {
+		/*
+		 * System.out.println("GameView.runGame().test2()"); test2();
+		 */
 		System.out.println("GameView.runGame()");
 		setOnTouchListener(new View.OnTouchListener() {
 			private float fStartX, fStartY, fOffsetX, fOffsetY;
-			
+
 			@Override
 			public boolean onTouch(View v, MotionEvent event) {
 				// TODO Auto-generated method stub
@@ -115,17 +111,15 @@ public class GameView extends GridLayout {
 		super.onSizeChanged(w, h, oldw, oldh);
 		System.out.println("GameView_onSizeChanged");
 
-		/*		int iLength=Math.min(w, h);
-		LayoutParams lp=new LayoutParams();
-		lp.height=iLength;
-		lp.width=iLength;
-		this.setLayoutParams(lp);
-		int iCardWidth = (iLength - 16) / 4;
-		*/
+		/*
+		 * int iLength=Math.min(w, h); LayoutParams lp=new LayoutParams();
+		 * lp.height=iLength; lp.width=iLength; this.setLayoutParams(lp); int
+		 * iCardWidth = (iLength - 16) / 4;
+		 */
 		int iCardWidth = (Math.min(w, h) - 16) / 4;
 		addCard(iCardWidth, iCardWidth);
 		startGame();
-//		test2();
+		// test2();
 	}
 
 	private void addCard(int iCardWidth, int iCardHight) {

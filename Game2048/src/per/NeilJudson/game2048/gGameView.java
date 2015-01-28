@@ -14,41 +14,25 @@ import android.view.View;
 import android.widget.GridLayout;
 import android.widget.LinearLayout;
 
-public class GameView extends GridLayout {
+public class gGameView extends GridLayout {
 	private Card[][] cardMap = new Card[4][4];
 	private List<Point> emptyPoints = new ArrayList<Point>();
 
-	/*
-	 * LinearLayout linearLayout=(LinearLayout)findViewById(R.id.linearLayout);
-	 * private void test(){ int h=0; int w = 0; // LayoutParams
-	 * lp=(LayoutParams) linearLayout.getLayoutParams();
-	 * System.out.println("test "+h+" "+w); System.out.println("1"); //
-	 * h=lp.height; linearLayout.measure(w, h); System.out.println("2"); //
-	 * w=lp.width; System.out.println("test "+h+" "+w); }
-	 */
-
-	private void test2() {
-		int h, w;
-		h = getHeight();
-		w = getWidth();
-		System.out.println(h + " " + w);
-	}
-
-	public GameView(Context context) {
+	public gGameView(Context context) {
 		super(context);
 		// TODO Auto-generated constructor stub
 		initGameView();
 		runGame();
 	}
 
-	public GameView(Context context, AttributeSet attrs) {
+	public gGameView(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		// TODO Auto-generated constructor stub
 		initGameView();
 		runGame();
 	}
 
-	public GameView(Context context, AttributeSet attrs, int defStyle) {
+	public gGameView(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
 		// TODO Auto-generated constructor stub
 		initGameView();
@@ -58,21 +42,15 @@ public class GameView extends GridLayout {
 	private void initGameView() {
 		setColumnCount(4);
 		setBackgroundColor(0xffbdada0);
-		System.out.println("GameView_initGameView");
 	}
 
 	private void runGame() {
-		/*
-		 * System.out.println("GameView.runGame().test2()"); test2();
-		 */
-		System.out.println("GameView.runGame()");
 		setOnTouchListener(new View.OnTouchListener() {
 			private float fStartX, fStartY, fOffsetX, fOffsetY;
 
 			@Override
 			public boolean onTouch(View v, MotionEvent event) {
 				// TODO Auto-generated method stub
-				System.out.println("GameView_runGame_onTouch");
 				switch (event.getAction()) {
 				case MotionEvent.ACTION_DOWN:
 					fStartX = event.getX();
@@ -83,18 +61,14 @@ public class GameView extends GridLayout {
 					fOffsetY = event.getY() - fStartY;
 					if (Math.abs(fOffsetX) > Math.abs(fOffsetY)) {
 						if (fOffsetX < -5) {
-							// System.out.println("left");
 							swipeLeft();
 						} else if (fOffsetX > 5) {
-							// System.out.println("right");
 							swipeRight();
 						}
 					} else {
 						if (fOffsetY < -5) {
-							// System.out.println("up");
 							swipeUp();
 						} else if (fOffsetY > 5) {
-							// System.out.println("down");
 							swipeDown();
 						}
 					}
@@ -105,25 +79,7 @@ public class GameView extends GridLayout {
 		});
 	}
 
-	@Override
-	protected void onSizeChanged(int w, int h, int oldw, int oldh) {
-		// TODO Auto-generated method stub
-		super.onSizeChanged(w, h, oldw, oldh);
-		System.out.println("GameView_onSizeChanged");
-
-		/*
-		 * int iLength=Math.min(w, h); LayoutParams lp=new LayoutParams();
-		 * lp.height=iLength; lp.width=iLength; this.setLayoutParams(lp); int
-		 * iCardWidth = (iLength - 16) / 4;
-		 */
-		int iCardWidth = (Math.min(w, h) - 16) / 4;
-		addCard(iCardWidth, iCardWidth);
-		startGame();
-		// test2();
-	}
-
-	private void addCard(int iCardWidth, int iCardHight) {
-		System.out.println("GameView_addCard");
+	public void addCard(int iCardWidth, int iCardHight) {
 		Card c;
 		for (int i = 0; i < 4; i++) {
 			for (int j = 0; j < 4; j++) {
@@ -135,8 +91,7 @@ public class GameView extends GridLayout {
 		}
 	}
 
-	private void startGame() {
-		System.out.println("GameView_startGame");
+	public void startGame() {
 		MainActivity.getMainActivity().clearScore();
 		for (int i = 0; i < 4; i++) {
 			for (int j = 0; j < 4; j++) {
@@ -148,7 +103,6 @@ public class GameView extends GridLayout {
 	}
 
 	private void addRandomNum() {
-		System.out.println("GameView.addRandomNum()");
 		emptyPoints.clear();
 		for (int i = 0; i < 4; i++) {
 			for (int j = 0; j < 4; j++) {
